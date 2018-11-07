@@ -1,4 +1,4 @@
-# 机灵报表（SmartReport）- MySQL
+# 机灵报表（MySmartReport）- MySQL
 机灵报表（SmartReport）是基于Birt 4.6开发的一款报表应用管理平台，机灵报表具有如下特点：
 - 项目管理，机灵报表中的所有报表都是以项目模式进行管理的，只有项目组中的成员可以互相查看对方创建的报表。
 - 数据源管理，通用的数据源管理方式，可以让用户快速在测试环境与生产环境之间进行切换。
@@ -30,5 +30,3 @@
 将v_user_role_resources表删除，使用 src/main/resources/mysql.data.sql中的视图脚本创建视图
 将 src/main/resources/mysql.data.sql中的初始化语句导入数据库中
 重新启动项目
-
-
