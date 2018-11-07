@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//src/main/webapp/WEB-INF/views/api/api.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/common/commonInclude.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/iframe/view.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/usergroup/userrole_list.jsp=UTF-8

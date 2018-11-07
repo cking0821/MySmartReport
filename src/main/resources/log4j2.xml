@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<properties>
+		<property name="LOG_HOME">/apps/logs/</property>
+		<property name="FILE_NAME">SmartReport</property>
+		<property name="LOG.SQL.LEVEL">info</property>
+	</properties>
+
+	<Appenders>
+
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %l - %msg%n" />
+		</Console>
+
+
+		<RollingFile name="RollingFile" fileName="${LOG_HOME}/${FILE_NAME}.log"
+			filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>[%d] [%p] [PLATFORM] [SmartReport] %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="2MB" />
+			</Policies>
+		</RollingFile>
+
+	</Appenders>
+	<Loggers>
+		<!-- 开发用的测试类 -->
+		<Logger name="com.favccxx.report.util" level="info" additivity="false">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="RollingFile" />
+		</Logger>
+
+		<!-- <Logger name="com.favccxx.report.util" level="info" additivity="false"> -->
+		<!-- <AppenderRef ref="Console" /> -->
+		<!-- <AppenderRef ref="File" /> -->
+		<!-- </Logger> -->
+
+		<Logger name="com.mchange.v2" level="info" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
+
+
+		<!-- Log everything in hibernate -->
+		<Logger name="org.hibernate" level="info" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
+
+		<!-- Log SQL statements -->
+		<Logger name="org.hibernate.SQL" level="debug" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
+
+		<!-- Log JDBC bind parameters -->
+		<Logger name="org.hibernate.type.descriptor.sql" level="trace"
+			additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
+
+		<!-- Log custom packages -->
+		<Logger name="com.boraji.tutorial.hibernate" level="debug"
+			additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
+
+
+		<Logger name="org.eclipse.birt" level="info" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
+
+		<Root level="info">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="RollingFile" />
+		</Root>
+	</Loggers>
+</Configuration>
